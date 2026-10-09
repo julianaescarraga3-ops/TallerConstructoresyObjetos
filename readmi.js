@@ -7,3 +7,8 @@
 //This significa, en este contexto, 'este objeto'. Por eso cada mascota puede usar sus propios
 //datos aunque todas compartan el mismo método.
 
+//Ejercicio 3.
+//Si el objeto reconoce por si mismo el estado logico, nos evida añadir calculos mas extensos 
+// al codigo, ademas de poder modificarlo una sola vez de ser necesario, no infinitas veces
+
+//Ejercicio 4.
