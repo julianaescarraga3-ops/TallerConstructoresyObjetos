@@ -1,55 +1,39 @@
-//Ejercicio 4. Concesionario de vehiculos - Registro ineractivo 
+//Ejercicio 4. Biblioteca - Control de Estados Modificables
 
-function Vehiculo(marca, modelo, color, motor, puestos) {
+function Libro(titulo, autor, año, genero) {
 
-    this.marca = marca;
-    this.modelo = modelo;
-    this.color = color;
-    this.motor = motor;
-    this.puestos = puestos;
+    this.titulo = titulo;
+    this.autor = autor;
+    this.año = año;
+    this.genero = genero;
+    this.prestado = false;
 
-    this.mostrarInfo = function() {
-        console.log(`Marca: ${this.marca}, Modelo: ${this.modelo}, Color: ${this.color}, Motor: ${this.motor}, Puestos: ${this.puestos}`);
+    this.prestar = function() {
+        if (this.prestado === false) {
+            this.prestado = true;
+        } else {
+            alert("El libro ya está prestado.");
+        }
     };
 
-    this.cambiarColor = function(nuevoColor) {
-        this.color = nuevoColor;
-    };
-
-    this.encender = function() {
-        console.log(`El vehículo ${this.marca} ${this.modelo} está encendido.`);
+    this.devolver = function() {
+        if (this.prestado === true) {
+            this.prestado = false;
+        } else {
+            alert("El libro no está prestado.");
+        }
     };
 }
 
+let libro1 = new Libro(
+    "Cien años de soledad",
+    "Gabriel García Márquez",
+    1967,
+    "Novela"
+);
 
-function crearVehiculo() {
+console.log(libro1);
 
-    const marca = prompt("Ingrese la marca:");
-    const modelo = prompt("Ingrese el modelo:");
-    const color = prompt("Ingrese el color:");
-    const motor = prompt("Ingrese el motor:");
-    const puestos = Number(prompt("Ingrese el número de puestos:"));
+libro1.prestar();
+libro1.devolver();
 
-    return new Vehiculo(marca, modelo, color, motor, puestos);
-}
-
-
-const vehiculo1 = crearVehiculo();
-const vehiculo2 = crearVehiculo();
-const vehiculo3 = crearVehiculo();
-
-
-vehiculo1.mostrarInfo();
-vehiculo1.encender();
-
-vehiculo2.mostrarInfo();
-vehiculo2.encender();
-
-vehiculo3.mostrarInfo();
-vehiculo3.encender();
-
-
-vehiculo1.cambiarColor("Negro");
-
-console.log("Después de cambiar el color:");
-vehiculo1.mostrarInfo();
